@@ -49,5 +49,9 @@ group :development do
 
   # Automatically generate summary
   gem 'annotate'
+
+  # Code analyzer(linter) and formatter
+  gem 'rubocop', require: false
+
 end
 
