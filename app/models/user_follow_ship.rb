@@ -1,0 +1,2 @@
+class UserFollowShip < ApplicationRecord
+end
