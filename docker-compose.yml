@@ -6,6 +6,7 @@ services:
     ports:
       - 3001:3000
     environment:
+      POSTGRES_HOST: db
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: password
   db:
