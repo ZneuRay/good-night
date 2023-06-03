@@ -14,4 +14,6 @@
 #  index_user_following_user_ships_on_user_id            (user_id)
 #
 class UserFollowingUserShip < ApplicationRecord
+  belongs_to :user
+  belongs_to :following_user, class_name: 'User'
 end

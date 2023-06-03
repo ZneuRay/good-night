@@ -10,4 +10,12 @@
 #
 class User < ApplicationRecord
   validates_presence_of :name
+
+  # Following users relationships
+  has_many :user_following_user_ships
+  has_many :following_users, through: :user_following_user_ships
+
+  # Followers relationships
+  has_many :user_follower_ships, class_name: 'UserFollowingUserShip', foreign_key: :following_user_id
+  has_many :followers, through: :user_follower_ships, source: :user
 end
