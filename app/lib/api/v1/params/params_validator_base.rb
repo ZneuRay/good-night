@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-module Api::V1
-  class ApiParamsValidateBase
+module Api::V1::Params
+  class ParamsValidatorBase
     include ActiveModel::Validations
 
     # @param [ActionController::Parameters] params
