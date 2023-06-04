@@ -1,9 +1,9 @@
 module Api
   module V1
     class ApiController < ApplicationController
-      # @param [Object] response_data
-      def response_success(response_data)
-        api_response.data = response_data
+      # @param [Api::V1::Entities::EntityBase] response_entity
+      def response_success(response_entity)
+        api_response.data = response_entity.to_json
 
         render json: api_response.to_response
       end
