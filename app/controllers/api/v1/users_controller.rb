@@ -64,6 +64,13 @@ module Api
 
         response_success(Entities::UserEntity.new(user))
       end
+
+      def following_users
+        user = User.find_by(id: params[:id])
+        response_error(ApiCode::RECORD_NOT_FOUND, 'user not found') and return if user.nil?
+
+        response_success(Entities::UsersEntity.new(user.following_users))
+      end
     end
   end
 end

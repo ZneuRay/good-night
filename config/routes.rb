@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :users, only: %i[index show create] do
         post :follow, on: :member
         post :unfollow, on: :member
+        get :following_users, on: :member
         resources :user_sleep_diary, only: %i[index show] do
         end
       end
