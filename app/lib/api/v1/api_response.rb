@@ -1,6 +1,9 @@
 module Api
   module V1
     class ApiResponse
+      # An implementation of the API response.
+      # The `data` attribute is present only in successful responses,
+      # while the `message` attribute is present only in failure responses.
       attr_accessor :status, :message
       attr_reader :data
 
