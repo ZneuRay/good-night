@@ -11,6 +11,7 @@ module Api
 
       # User failure
       CANNOT_FOLLOW_USER = 100
+      CANNOT_UNFOLLOW_USER = 101
     end
   end
 end
