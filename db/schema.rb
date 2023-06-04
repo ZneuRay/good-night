@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_04_101415) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_04_103423) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,7 +43,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_04_101415) do
 
   create_table "user_sleep_meta", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "user_sleep_diary_count", default: 0
+    t.integer "user_sleep_diaries_count", default: 0
     t.boolean "disabled", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
