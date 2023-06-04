@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         post :unfollow, on: :member
         get :following_users, on: :member
         resources :user_sleep_diary, only: %i[index show] do
+          get :following_users, on: :collection
         end
       end
     end
