@@ -1,8 +1,8 @@
 module Api::V1::Entities
-  class UserEntity
+  class UserEntity < EntityBase
     attr_accessor :id, :name
 
-    def initialize(user)
+    def init_entity(user)
       @id = user.id
       @name = user.name
     end
