@@ -3,9 +3,8 @@ module Api
     class ApiController < ApplicationController
       # @param [Api::V1::Entities::EntityBase] response_entity
       def response_success(response_entity = nil)
-        render json: {} if response_entity.nil?
+        api_response.data = response_entity.to_json unless response_entity.nil?
 
-        api_response.data = response_entity.to_json
         render json: api_response.to_response
       end
 
