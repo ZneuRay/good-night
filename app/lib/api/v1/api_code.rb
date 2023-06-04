@@ -7,6 +7,7 @@ module Api
       # failure
       RECORD_NOT_FOUND = 1
       PARAMS_NOT_VALID = 2
+      RECORD_NOT_VALID = 3
     end
   end
 end
