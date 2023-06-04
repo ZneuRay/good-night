@@ -35,4 +35,15 @@ class User < ApplicationRecord
     errors.add(:user_id, e.record.errors.full_messages.to_sentence)
     false
   end
+
+  # @param [User] user
+  def unfollow(user)
+    return false if id == user.id
+
+    following_users.delete(user)
+    true
+  rescue ActiveRecord::RecordInvalid => e
+    errors.add(:user_id, e.record.errors.full_messages.to_sentence)
+    false
+  end
 end
