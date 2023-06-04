@@ -13,6 +13,7 @@ Rails.application.routes.draw do
         resources :user_sleep_diary, only: %i[index show] do
           get :following_users, on: :collection
         end
+        resources :user_sleep_records, only: :create
       end
     end
   end
