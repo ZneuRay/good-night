@@ -6,7 +6,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: %i[index show create]
+      resources :users, only: %i[index show create] do
+        resources :user_sleep_diary, only: %i[index show] do
+        end
+      end
     end
   end
 end
