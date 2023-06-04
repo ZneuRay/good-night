@@ -17,4 +17,5 @@
 #  index_user_sleep_records_on_user_sleep_diary_id  (user_sleep_diary_id)
 #
 class UserSleepRecord < ApplicationRecord
+  belongs_to :user_sleep_diary
 end

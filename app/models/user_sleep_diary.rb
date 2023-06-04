@@ -23,4 +23,5 @@
 #
 class UserSleepDiary < ApplicationRecord
   belongs_to :user_sleep_meta, counter_cache: true
+  has_many :user_sleep_records
 end
