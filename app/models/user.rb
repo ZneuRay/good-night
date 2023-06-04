@@ -18,4 +18,16 @@ class User < ApplicationRecord
   # Followers relationships
   has_many :user_follower_ships, class_name: 'UserFollowingUserShip', foreign_key: :following_user_id
   has_many :followers, through: :user_follower_ships, source: :user
+
+  # @param [User] user
+  # @return [Boolean]
+  def follow(user)
+    return false if id == user.id
+
+    following_users << user
+    true
+  rescue ActiveRecord::RecordInvalid => e
+    errors.add(:user_id, e.record.errors.full_messages.to_sentence)
+    false
+  end
 end
