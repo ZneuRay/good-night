@@ -22,4 +22,5 @@
 #  index_user_sleep_diaries_on_wake_time_record_id  (wake_time_record_id)
 #
 class UserSleepDiary < ApplicationRecord
+  belongs_to :user_sleep_meta, counter_cache: true
 end

@@ -15,4 +15,5 @@
 #
 class UserSleepMeta < ApplicationRecord
   belongs_to :user
+  has_many :user_sleep_diaries
 end
