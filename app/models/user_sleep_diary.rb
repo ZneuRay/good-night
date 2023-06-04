@@ -22,6 +22,16 @@
 #  index_user_sleep_diaries_on_wake_time_record_id  (wake_time_record_id)
 #
 class UserSleepDiary < ApplicationRecord
+  before_commit :calculate_total_sleep_minutes
+
   belongs_to :user_sleep_meta, counter_cache: true
   has_many :user_sleep_records
+
+  private
+
+  def calculate_total_sleep_minutes
+    return if bed_time.nil? || wake_time.nil?
+
+    self.total_sleep_minute = (wake_time - bed_time) / 60 + 1
+  end
 end
