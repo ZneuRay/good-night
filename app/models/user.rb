@@ -19,6 +19,9 @@ class User < ApplicationRecord
   has_many :user_follower_ships, class_name: 'UserFollowingUserShip', foreign_key: :following_user_id
   has_many :followers, through: :user_follower_ships, source: :user
 
+  # Sleep data
+  has_one :user_sleep_meta
+
   # @param [User] user
   # @return [Boolean]
   def follow(user)

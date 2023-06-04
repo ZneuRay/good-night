@@ -14,4 +14,5 @@
 #  index_user_sleep_meta_on_user_id  (user_id)
 #
 class UserSleepMeta < ApplicationRecord
+  belongs_to :user
 end
