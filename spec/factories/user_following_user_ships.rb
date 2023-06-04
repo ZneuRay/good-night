@@ -14,11 +14,9 @@
 #  index_user_following_user_ships_on_following_user_id  (following_user_id)
 #  index_user_following_user_ships_on_user_id            (user_id)
 #
-require 'rails_helper'
-
-RSpec.describe UserFollowingUserShip, type: :model do
-  subject { create(:user_following_user_ship) }
-  it 'is valid to create a following ship' do
-    expect(subject).to be_valid
+FactoryBot.define do
+  factory :user_following_user_ship do
+    association :user
+    association :following_user, factory: :user
   end
 end
