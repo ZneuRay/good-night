@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
   # Sleep data
   has_one :user_sleep_meta
+  has_many :user_sleep_diaries, through: :user_sleep_meta
 
   # @param [User] user
   # @return [Boolean]
