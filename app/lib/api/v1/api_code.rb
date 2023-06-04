@@ -8,6 +8,9 @@ module Api
       RECORD_NOT_FOUND = 1
       PARAMS_NOT_VALID = 2
       RECORD_NOT_VALID = 3
+
+      # User failure
+      CANNOT_FOLLOW_USER = 100
     end
   end
 end
