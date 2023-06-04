@@ -11,6 +11,8 @@
 class User < ApplicationRecord
   validates_presence_of :name
 
+  after_create :create_user_sleep_meta
+
   # Following users relationships
   has_many :user_following_user_ships
   has_many :following_users, through: :user_following_user_ships
