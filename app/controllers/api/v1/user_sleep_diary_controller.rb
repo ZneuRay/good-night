@@ -3,7 +3,7 @@ module Api
     class UserSleepDiaryController < ApiController
       before_action :check_user
       def index
-        response_success(Entities::UserSleepDiariesEntity.new(@user.user_sleep_meta.user_sleep_diaries))
+        response_success(Entities::UserSleepDiariesEntity.new(@user.user_sleep_diaries))
       end
 
       private
