@@ -2,6 +2,14 @@ module Api
   module V1
     class UserSleepRecordsController < ApiController
       before_action :check_user
+
+      def index
+        user_sleep_diary_ids = @user.user_sleep_diaries.pluck(:id)
+        user_sleep_records = UserSleepRecord.where(user_sleep_diary_id: user_sleep_diary_ids).order(:created_at)
+
+        response_success(Entities::UserSleepRecordsEntity.new(user_sleep_records))
+      end
+
       def create
         user_sleep_record_create_params = Params::UserSleepRecordCreateParams.new(params)
         if user_sleep_record_create_params.invalid?
