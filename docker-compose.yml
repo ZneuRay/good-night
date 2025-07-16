@@ -9,11 +9,19 @@ services:
       POSTGRES_HOST: db
       POSTGRES_USERNAME: postgres
       POSTGRES_PASSWORD: password
+    depends_on:
+      db:
+        condition: service_healthy
   db:
-    image: postgres
+    image: postgres:17.5
     volumes:
       - ./tmp/postgres:/var/lib/postgresql/data
     ports:
       - 5433:5432
     environment:
       POSTGRES_PASSWORD: password
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
